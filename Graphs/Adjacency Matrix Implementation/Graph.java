@@ -2,7 +2,7 @@ public class Graph {
 	private final int MAX_VERTS = 20;
 	private Vertex vertexList[]; // Array of vertices.
 	private int adjMat[][];      // Adjacency matrix.
-	private Stack theStack;
+	private Stack pathStack;
 	private int nVerts;          // Number of vertices.
 	
 	public Graph() {
@@ -13,7 +13,7 @@ public class Graph {
 		for (int row = 0; row < MAX_VERTS; row++)
 			for (int col = 0; col < MAX_VERTS; col++)
 				adjMat[row][col] = 0;
-		theStack = new Stack(MAX_VERTS);
+		pathStack = new Stack(MAX_VERTS);
 	}
 	
 	public void addVertex(char label) {
@@ -34,11 +34,11 @@ public class Graph {
 		return -1;      // -1 means there are no more adjacent (col) vertices for given vertex (row).
 	}
 	
-	/** Finds all reachable vertices from initial vertex*/
+	/** Finds all reachable vertices from initial vertex. */
 	public void recursiveDepthFirstSearch(int start) {
 		vertexList[start].wasVisited = true;
 		displayVertex(start);
-		theStack.push(start);
+		pathStack.push(start);
 		
 		for (int col = 0; col < nVerts; col++)
 			if (adjMat[start][col] == 1 && vertexList[col].wasVisited ==false)

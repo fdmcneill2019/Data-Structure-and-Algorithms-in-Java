@@ -1,11 +1,12 @@
 public class Graph {
-	private final int MAX_VERTS = 20;
+	private int MAX_VERTS;
 	private Vertex vertexList[]; // Array of vertices.
 	private int adjMat[][];      // Adjacency matrix.
 	private Stack pathStack;
 	private int nVerts;          // Number of vertices.
 	
-	public Graph() {
+	public Graph(int vertices) {
+		MAX_VERTS = vertices;
 		vertexList = new Vertex[MAX_VERTS];     // This array is used to map array keys to actual vertex objects.
 		adjMat = new int[MAX_VERTS][MAX_VERTS]; // Basic DS which models the actual edges of graph.
 		nVerts = 0;

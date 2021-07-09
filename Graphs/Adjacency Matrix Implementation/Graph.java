@@ -22,10 +22,15 @@ public class Graph {
 		nVerts++;
 	}
 	
-	/** Adds an edge between vertices v and w in the adjacency matrix. */
-	public void addEdge(int v, int w) {
+	/** Adds an undirected edge between vertices v and w in the adjacency matrix. */
+	public void addUndirectedEdge(int v, int w) {
 		adjMat[v][w] = 1;
 		adjMat[w][v] = 1;
+	}
+	
+	/** Adds a directed edge between vertices v and w in the adjacency matrix. */
+	pulic void addDirectedEdge(int v, int w){
+		adjMat[v][w] = 1;
 	}
 	
 	public int getAdjUnvisitedVertex(int row) {
